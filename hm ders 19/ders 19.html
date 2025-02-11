@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    h1 {
+        color: red;
+    }
+    </style>
+<body>
+    <image src=image.gif></image>
+    <h1>HM Döner </h1>
+    <p>Bir tane seçme hakkınız var :</p>
+    <select id="NOVA" onchange="Ciks()">
+        <option value="Mayonez Ketçap"> Ketçap Mayonez </options>
+        <option value="Marol">Marol</option>
+        <option value="Turşu">Turşu</option>
+        <option value="Domates">Domates</option>
+    </select>
+    <p id="sudo"></p>
+
+    <script>
+        function Ciks() {
+            var x = document.getElementById('NOVA').value
+            document.getElementById('sudo').innerHTML = 'Seçilen Malzeme: ' + x
+        }
+    </script>
+</body>
+</html>

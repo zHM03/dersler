@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 31.css">
+</head>
+<body>
+    
+    <script>
+        class Logger {
+            log (message) {
+                console.log(message)
+        }
+    }
+        class User {
+            constructor(name) {
+                this.name = name
+            }
+            save (name) {
+                const logger = new Logger();
+                logger.log(`User ${name} Saved`)
+            }
+        }
+        const usr = new User ();
+        const lg = new Logger();
+        console.log(lg.log("Message"));
+        console.log(usr.save("fatih"));
+
+    </script>
+</body>
+</html>

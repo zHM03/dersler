@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery AJAX Örneği</title>
+    <style>
+      .book {
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="books-container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const url = "https://openlibrary.org/subjects/mystery_and_detective_stories.json";
+        
+        // AJAX isteği
+        $.ajax({
+          url: url,
+          dataType: "json",
+          success: function (data) {
+            let booksHTML = "";
+            
+            // Kitaplar listesi üzerinde döngü
+            $.each(data.works, function (index, book) {
+              booksHTML += `
+                <div class="book">
+                  <h3>${book.title}</h3>
+                  <p>Yazar: ${book.authors[0]?.name || "Bilinmiyor"}</p>
+                </div>
+              `;
+            });
+
+            // Kitapları HTML'e ekle
+            $("#books-container").html(booksHTML);
+          },
+          error: function () {
+            alert("Veri alınmadı.");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

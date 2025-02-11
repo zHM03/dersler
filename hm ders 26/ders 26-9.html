@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            min-height: 100px;
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+        .draggable {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            background-color: #f0f0f0;
+            cursor: grab;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <div class="draggable" draggable="true" ondragstart="dragStart(event)">
+            Öğe 1
+        </div>
+    </div>
+    <div class="container" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <div class="draggable" draggable="true" ondragstart="dragStart(event)">
+            Öğe 2
+        </div>
+    </div>
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+        function dragStart(event) {
+            event.dataTransfer.setData("text/plain", event.target.innerText);
+        }
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text/plain");
+            var newElement = document.createElement("div");
+            newElement.className = "draggable";
+            newElement.innerText = data;
+            newElement.draggable = true;
+            newElement.ondragstart = dragStart;
+            event.target.appendChild(newElement);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="baslik">bom etkisi</h1>
+    <button onclick="Denemeler()">BOM</button>
+    <script>
+      //function BomEtkisi() {
+        /*window.open("https://google.com.tr", "_blank");
+            console.log(window.innerHeight);
+            console.log(window.innerWidth);*/
+        /*let x= 5;
+            let y= 10;
+            let ss = "Metin verisi eklentisi";
+            console.log(x * y);*/
+
+        //console.log(Boolean(x<y));
+        //console.log(ss);
+        //console.log("Uzunluğu:"+ss.length)
+
+        /*let xx=7;
+            let yy=9
+            let zz=8;
+
+            window.alert(xx+yy*zz);*/
+
+        //const car = {type:"fiyat", model:"500", color:"white",};
+
+        //console.log("car type" + car.type+"model"+car.model+"color"+car.color);
+        //window.alert("car type"+ car.type+"model"+car.model+"color"+car.color);
+
+        //let ad1="hm";
+        //let ad2="hiso";
+        //console.log(Boolean(ad1!=ad2));
+
+        //var x1 = 5;
+        //var y1 = 10;
+        //var z1 =5
+        //result = (x1>y1) || (x1>=z1)
+        //console.log(result);
+
+        /*let soru1 = 2 + 2;
+        if ((soru1 = 4)) {
+          console.log("Doğru");
+        } else {
+          console.log("Yanlış");
+        }*/
+
+        /* for(let i = 0; i <10; i++)
+      {
+        console.log("Dögü sayısı:", i);
+        console.log(i+0);
+      }*/
+        /*function greet(name) {
+          return alert("merhaba," + name + "!");
+        }*/
+
+        function Denemeler()
+        {
+            var dataSpeed=null;
+
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() +1; //çünkü aylar 0dan başlıyor
+            let dd = today.getDate();
+
+            const formattedToday = dd + '/' + mm + '/' + yyyy;
+            window.alert(formattedToday);
+        }
+    //}
+    </script>
+  </body>
+</html>

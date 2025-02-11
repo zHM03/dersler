@@ -1,0 +1,27 @@
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+th,td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: bisque;
+    color: blue;
+}
+
+tbody tr:nth-child(even) {
+    background-color: blueviolet;
+}
+
+caption {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

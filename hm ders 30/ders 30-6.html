@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 30.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mediator pattern</h1>
+        <div id="chat-box"></div>
+        <input type="text" id="message-input" placeholder="type a message...">
+        <button id="send-button">Send</button>
+    </div>
+    <script>
+        class Mediator {
+            constructor() {
+                this.users = [];  // Doğru değişken adı 'users' olmalı
+            }
+
+            addUser(user) {
+                this.users.push(user);  // 'user' yerine 'users' olmalı
+            }
+
+            sendMessage(message, sender) {
+                this.users.forEach(user => {
+                    if (user !== sender) {
+                        user.receiveMessage(message);  // 'receiveMessage' doğru yazım
+                    }
+                });
+            }
+        }
+
+        class User {
+            constructor(name, mediator) {
+                this.name = name;
+                this.mediator = mediator;
+                this.mediator.addUser(this);  // Mediator'a kullanıcıyı ekliyoruz
+            }
+
+            sendMessage(message) {
+                this.mediator.sendMessage(message, this);  // Mediatör aracılığıyla mesaj gönderiyoruz
+            }
+
+            receiveMessage(message) {  // 'receiveMessage' doğru yazım
+                const chatBox = document.getElementById("chat-box");
+                const messageElement = document.createElement("div");
+                messageElement.textContent = `${this.name} received: ${message}`;
+                chatBox.appendChild(messageElement);
+            }
+        }
+
+        // Mediator nesnesi oluşturuyoruz
+        const mediator = new Mediator();
+
+        // Kullanıcıları oluşturuyoruz
+        const user1 = new User("User1", mediator);
+        const user2 = new User("User2", mediator);
+
+        // Mesaj gönderme işlemi
+        document.getElementById("send-button").addEventListener("click", () => {
+            const message = document.getElementById("message-input").value;
+            if (message.trim() !== "") {  // Boş mesaj gönderilmesini engelliyoruz
+                user1.sendMessage(message);  // User1 mesaj gönderiyor
+                document.getElementById("message-input").value = "";  // Mesaj kutusunu temizliyoruz
+            }
+        });
+    </script>
+</body>
+</html>

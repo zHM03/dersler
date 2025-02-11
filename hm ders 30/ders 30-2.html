@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 30.css">
+</head>
+<body>
+    <script>
+const personPrototype = {
+    greet: function() {
+        console.log(
+            `Hello, my name is ${this.name} and I'm ${this.age} years old. Mesleğim ${this.position}.`
+        );
+    }
+};
+const john = Object.create(personPrototype);
+john.name = "Maho";
+john.age = 21;
+john.position = "Yazlım uzmanı";
+john.greet();
+    </script>
+</body>
+</html>

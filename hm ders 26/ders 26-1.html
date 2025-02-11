@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Başlık 1</h1>
+        <h2>Başlık 2</h2>
+        <h3>Başlık 3</h3>
+        <p>Paragraf</p>
+    </div>
+    <ul id="list">
+        <li>Öğe 1</li>
+        <li>Öğe 2</li>
+    </ul>
+    <script>
+        var list = document.getElementById('list');
+        console.log(list.parentNode); //body düğümünü yazdırır
+        var container = document.getElementById('container');
+        console.log(container.childNodes); // düğüö listesini yazdırır
+    </script>
+</body>
+</html>

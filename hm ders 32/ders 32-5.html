@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="main" data-name="example">Ana Div</div>
+    <p class="info">Bilgi Paragrafı</p>
+    <button id="style">Stil Uygula</button>
+    <script>
+      $(document).ready(function () {
+        $("#style").click(function () {
+          // #main id'si ile seçilen div'in arka plan rengini sarı yapıyoruz
+          $("#main").css("background-color", "yellow");
+          
+          // .info class'ına sahip paragrafın font-weight stilini kalın yapıyoruz
+          $(".info").css("font-weight", "bold");
+          
+          // data-name attribute'u "example" olan elementi seçip kenarlık ekliyoruz
+          $('[data-name="example"]').css("border", "1px solid black");
+        });
+      });
+    </script>
+  </body>
+</html>

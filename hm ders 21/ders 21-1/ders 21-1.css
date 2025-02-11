@@ -1,0 +1,36 @@
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(75, 25, 16);
+    color: brown;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba (0,0,0,0.1);
+}
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: rgb(228, 128, 57);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(153, 58, 14);
+}
+
+input {
+    margin: 5px;
+    padding: 10px;
+    width: calc(100% - 25px);
+}

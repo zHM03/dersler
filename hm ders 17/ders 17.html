@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Nesne()">Örenği</button>
+    <script>
+        function Nesne() {
+            var person ={
+                firstName: 'HM',
+                lastName: 'KH',
+                age: 21,
+                from: Damascus,
+                fullName: function(){
+                    return this.firstName + ' ' + this.lastName + ' ' + this.age + ' ' + this.from + ' '
+                }
+            }
+            console.log(person.fullName())
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Delete()">Örnek</button>
+    <script>
+        function Delete() {
+            var car = { brand: 'Harley Davidson', model: 'a5', year: 2003}
+            delete car.year
+            console.log(car.brand + ' ' + car.model + ' ' + car.year)
+        }
+    </script>
+</body>
+</html> -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="VarlikKontrol()">örnek</button> 
+    <script>
+        function VarlikKontrol() {
+            var car = {brand: 'r25', model: '250cc'}
+            console.log('brand' in car)
+            console.log(car.hasOwnProperty('model'))
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ObjectCreate()">örnek</button>
+    <script>
+        function ObjectCreate() {
+            var protoCar = { type: 'Motorcycle:' }
+            var myCar = Object.create(protoCar)
+            myCar.brand = 'Harley Davidson,'
+            myCar.year = 'Model: 2025,'
+            myCar.topspeed = 'Top speed: 200km/h,'
+            myCar.color = 'Color: Black'
+            console.log(myCar.type + ' ' + myCar.brand + ' ' + myCar.year + ' ' + myCar.topspeed + ' ' + myCar.color)
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="OzellikGosterme()">OzellikGosterme</button>
+    <script>
+        function OzellikGosterme() {
+            var person = { name: 'Hisham', age: 21, job: 'Photoshıo Develepor'}
+            for (var key in person) {
+                console.log()
+            }
+        }
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 31.css">
+</head>
+<body>
+    
+    <script>
+      class Printer {
+        print() {
+            throw new Error ("Method not implemented");
+        }
+      }
+      class Scanner {
+          scan() {
+              throw new Error ("Method not implemented");
+        }
+      }
+      class MultiFunctionPrinter extends printer {
+        print() {
+            console.log("printing-1....");
+        }
+      }
+      class simplePrinter extends Printer {
+        print() {
+            console.log("printing-2....");
+        }
+      }
+      const mfp= new MultiFunctionPrinter();
+      console.log(mfp.print());
+
+      const sp= new simplePrinter();
+      console.log(sp.print());
+
+      const sc= new Scanner();
+      console.log(sc.scan());
+    </script>
+</body>
+</html>

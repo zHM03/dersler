@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singleton Pattern</title>
+    <link rel="stylesheet" href="ders 30.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Singleton Pattern</h1>
+        <button id="create-instance">Create Instance</button>
+        <div id="output"></div>
+    </div>
+    <script>
+        class Singleton {
+            constructor() {
+                if (!Singleton.instance) {
+                    this.data = "Singleton Data";
+                    Singleton.instance = this;
+                }
+                return Singleton.instance;
+            }
+            get Data() {
+                return this.data;
+            }
+        }
+        document.getElementById("create-instance").addEventListener("click", () => {
+            const instance1 = new Singleton();
+            const instance2 = new Singleton();
+            const output = document.getElementById("output");
+            output.innerHTML = `
+                <p>Instance 1 Data: ${instance1.Data}</p>
+                <p>Instance 2 Data: ${instance2.Data}</p>
+                <p>Instance 1 === Instance 2: ${instance1 === instance2}</p>
+            `;
+        });
+    </script>
+</body>
+</html>

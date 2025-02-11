@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 31.css">
+</head>
+<body>
+    <div>
+        <input type="text" id="user-input" placeholder="Enter user name">
+        <button id="add-user-btn">Add User</button>
+    </div>
+    <ul id="user-list"></ul>
+    <script>
+        //Model
+        class userModel {
+            constructor() {
+                this.users = [];
+            }
+            addUser(user) {
+                this.user.push(user);
+            }
+            getUsers() {
+                return this.users;
+            }
+        }
+        // Controller
+        class userController {
+            constructor(model, view) {
+                this.model = model;
+                this.view = view;
+                this.view.addUserBtn.addEventListener("click", this.addUser.bind(this));
+            }
+            addUser() {
+                const users = this.model.getUsers();
+                this.view.render(users);
+            }
+        }
+        //view'in DOM elemanlarına erişimi
+        class UserView {
+            constructor() {
+                this.userList = document.querySelector("#user-list ul");
+                this.userInput = document.querySelector("#user-input");
+                this.addUserBtn = document.querySelector("#add-user-btn");
+            }
+            render(users) {
+                this.userList.innerHTML = "";
+                users.forEach(user => {
+                    const li = document.createElement("li");
+                    li.textContent = user;
+                    this.userList.appendChild(li);
+                });
+            }
+        }
+        const model = new UserModel();
+        const view = new UserView();
+        const Controller = new userController(model, view);
+
+    </script>
+</body>
+</html>

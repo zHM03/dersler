@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toJson() Metodu Kullanımı</title>
+</head>
+<body>
+    <div class="container">
+        <h1>toJson() Metodu Kullanımı</h1>
+        <p><strong>javascript nesnesi:</strong></p>
+        <div class="codeBox" id="originalObject"></div>
+        <p><strong>toJson() ile Özelleştirilmiş JSON Çıktısı</strong></p>
+        <div class="codebox" id="customJSON"></div>
+    </div>
+    
+    <script>
+        var car = {
+            brand: "toyota",
+            model: "Camry",
+            year: 2003,
+            toJSON: function() {
+                return { brand: this.brand, model: this.model };
+            }
+        };
+
+        // Orijinal nesneyi JSON formatında gösterme
+        document.getElementById("originalObject").innerText = JSON.stringify(car, null, 2);
+
+        // Özelleştirilmiş JSON çıktısını gösterme
+        document.getElementById("customJSON").innerText = JSON.stringify(car);
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observer Pattern</title>
+    <link rel="stylesheet" href="ders 30.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Observer Pattern</h1>
+        <button id="add-observer">Add Observer</button>
+        <div id="observer-list"></div>
+    </div>
+    <script>
+        // Subject class that manages observers
+        class Subject {
+            constructor() {
+                this.observers = []; // Initialize observers array
+            }
+
+            // Add an observer to the list
+            addObserver(observer) {
+                this.observers.push(observer);
+            }
+
+            // Remove an observer from the list
+            removeObserver(observer) {
+                this.observers = this.observers.filter(obs => obs !== observer);
+            }
+
+            // Notify all observers with the provided data
+            notify(data) {
+                this.observers.forEach(observer => observer.update(data));
+            }
+        }
+
+        // Observer class that reacts to notifications from the Subject
+        class Observer {
+            constructor(id) {
+                this.id = id;
+            }
+
+            // Update method for observers
+            update(data) {
+                const listItem = document.createElement("div");
+                listItem.textContent = `Observer ${this.id} received: ${data}`;
+                document.getElementById("observer-list").appendChild(listItem);
+            }
+        }
+
+        // Instantiate a Subject
+        const subject = new Subject();
+        let observerCount = 0;  // Counter to give observers unique IDs
+
+        // Add an event listener to the button
+        document.getElementById("add-observer").addEventListener("click", () => {
+            observerCount++;  // Increment observer ID
+            const observer = new Observer(observerCount);  // Create a new observer with a unique ID
+            subject.addObserver(observer);  // Add the observer to the subject
+            subject.notify("new data");  // Notify all observers with new data
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+*,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+section {
+    padding-bottom: 60px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h2 { 
+    font-size: 60px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: yellowgreen;
+}
+
+footer {
+    width: 50%;
+    margin: 20px auto 0;
+    text-align: center;
+    text-align: 1.2em;
+    padding: 20px 0;
+    border-top: 1px solid crimson;
+}

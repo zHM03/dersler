@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class person {
+            constructor(name) {
+                this.name = name;
+            }
+            greet () {
+                return `Hola, ${this.name}!`;
+            }
+            greet2 () {
+                return `Selamün Aleyküm, ${this.name}!`;
+            }
+        }
+        const person3 = new person("Fatih");
+        console.log(person3.greet());
+        console.log(person3.greet2());
+    </script>
+</body>
+</html>

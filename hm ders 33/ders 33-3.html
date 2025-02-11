@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery AJAX Örneği</title>
+    <style>
+      .book {
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+      #response {
+        margin-top: 20px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="load-data">Veri Yükle</button>
+    <div id="response"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#load-data").click(function() {
+          $.ajax({
+            url: "https://openlibrary.org/subjects/mystery_and_detective_stories.json", // API adresini düzeltiniz
+            dataType: "json"
+          })
+          .done(function(data) {
+            // API'den gelen veriye göre doğru çıktıyı almak için
+            if (data.ebook_count) {
+              $("#response").html(`<p>${data.ebook_count} kitap bulundu.</p>`);
+            } else {
+              $("#response").html("<p>Kitap bulunamadı.</p>");
+            }
+          })
+          .fail(function() {
+            $("#response").html(
+              "<p style='color:red;'>Veri alınırken hata oluştu.</p>"
+            );
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

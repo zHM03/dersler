@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="ders 36.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>To Do</h1>
+        </div>
+        <div class="container">
+            <div class="board">
+                <div class="column" id="todo">
+                    <h2>To Do</h2>
+                    <div class="task" draggable="true">Task1<span
+                            class="remove">X</span></div>
+                    <div class="task" draggable="true">Task 2<span
+                            class="remove">X</span></div>
+                    <div class="add-task">
+                        <input type="text" placeholder="Add New Task">
+                        <button>Add</button>
+                    </div>
+                </div>
+                <div class="column" id="inProgress">
+                    <h2>In Progress</h2>
+                    <div class="add-task">
+                        <input type="text" placeholder="Add New Task">
+                        <button>Add</button>
+                    </div>
+                </div>
+                <div class="column" id="done"></div>
+                <h2>Done</h2> <br>
+                <div class="add-task">
+                    <input type="text" placeholder="Add New Task">
+                    <button>Add</button><br>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="ders 36.js"></script>
+    </body>
+</html>

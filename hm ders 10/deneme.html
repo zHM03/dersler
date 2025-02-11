@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chopper Yarış Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        #gameArea {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: #cce5ff;
+            border: 2px solid #0056b3;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        #playerMotor, #opponentMotor {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            border-radius: 10px;
+        }
+        #playerMotor {
+            background-image: url('https://w7.pngwing.com/pngs/113/539/png-transparent-motorcycle-cartoon-graphy-motorcycle-motorcycle-cartoon-motorcycle-vector-bicycle-thumbnail.png'); /* Oyuncu motor resmi URL'si */
+            bottom: 10px;
+        }
+        #opponentMotor {
+            background-image: url('https://w7.pngwing.com/pngs/913/160/png-transparent-motorcycle-courier-motorcycle-courier-red-motorcycle-courier-service-motorcycle-vector-motorcycle-thumbnail.png'); /* Rakip motor resmi URL'si */
+            top: 10px;
+            right: 10px;
+        }
+        #score {
+            font-size: 20px;
+            color: #0056b3;
+        }
+        #timer {
+            font-size: 20px;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chopper Yarış Oyunu</h1>
+        <p>
+            Bu basit yarış oyununda, motorunuzu yukarı ve aşağı hareket ettirerek rakip motoru yakalamaya çalışın.
+        </p>
+        <div id="gameArea">
+            <div id="playerMotor"></div>
+            <div id="opponentMotor"></div>
+        </div>
+        <div id="score">Puan: 0</div>
+        <div id="timer">Kalan Süre: 30s</div>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const playerMotor = document.getElementById('playerMotor');
+        const opponentMotor = document.getElementById('opponentMotor');
+        const scoreElement = document.getElementById('score');
+        const timerElement = document.getElementById('timer');
+
+        let score = 0;
+        let timeLeft = 30; // Süre (saniye)
+        let timerInterval;
+
+        function moveOpponentMotor() {
+            const maxY = gameArea.clientHeight - opponentMotor.clientHeight;
+            let randomY = Math.random() * maxY;
+            opponentMotor.style.top = `${randomY}px`;
+        }
+
+        function updateGame() {
+            moveOpponentMotor();
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = `Kalan Süre: ${timeLeft}s`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert(`Oyun bitti! Toplam Puan: ${score}`);
+                }
+            }, 1000);
+        }
+
+        function checkCollision() {
+            const playerRect = playerMotor.getBoundingClientRect();
+            const opponentRect = opponentMotor.getBoundingClientRect();
+
+            if (
+                playerRect.left < opponentRect.right &&
+                playerRect.right > opponentRect.left &&
+                playerRect.top < opponentRect.bottom &&
+                playerRect.bottom > opponentRect.top
+            ) {
+                score++;
+                scoreElement.textContent = `Puan: ${score}`;
+                moveOpponentMotor();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const playerMotorTop = parseInt(window.getComputedStyle(playerMotor).top, 10) || 0;
+            if (e.key === 'ArrowUp') {
+                playerMotor.style.top = `${Math.max(playerMotorTop - 10, 0)}px`;
+            } else if (e.key === 'ArrowDown') {
+                playerMotor.style.top = `${Math.min(playerMotorTop + 10, gameArea.clientHeight - playerMotor.clientHeight)}px`;
+            }
+            checkCollision();
+        });
+
+        // Oyunu başlat
+        updateGame();
+    </script>
+</body>
+</html>

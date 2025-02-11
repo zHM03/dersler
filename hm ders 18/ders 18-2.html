@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            #id;
+            constructor(firstname, lastname){
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.#id = Math.floor(Math.random() * 999);
+            }
+            getFullName(){
+                return `${this.firstname} ${this.lastname}`;
+            }
+            getId () {
+                return this.#id
+            }
+            }
+            let john = new Person("john", "doe <br>");
+            document.write(john.getFullName());
+            document.write("<br>ID" + john.getId());
+    </script>
+</body>
+</html>

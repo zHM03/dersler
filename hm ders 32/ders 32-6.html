@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <p class="info">Birinci Paragraf</p>
+    <p class="info">İkinci Paragraf</p>
+    <p class="info hidden" style="display: none;">Gizli Paragraf</p>
+    <button id="show-hidden">Gizli Öğeyi Göster</button>
+    <script>
+      $(document).ready(function () {
+        $("#show-hidden").click(function () {
+          $(".info:hidden").fadeIn();
+        });
+      });
+    </script>
+  </body>
+</html>

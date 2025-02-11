@@ -1,0 +1,6 @@
+2025-01-28 21:21:23,776:INFO:Kütüphane sistemi baþlatýldý
+2025-01-28 21:21:23,778:INFO:Yeni kitap eklendi: Harry Potter (ISBN: 978-0-7475-3269-9)
+2025-01-28 21:21:23,780:INFO:Yeni üye eklendi: Fatih Þahinbaþ
+2025-01-28 21:21:23,780:ERROR:Kitap ödünç alma hatasý: no such column: mevcut_kopya
+2025-01-28 21:21:23,780:INFO:Ýstatistikler görüntülendi.
+2025-01-28 21:21:23,781:INFO:Veritabaný baðlantýsý kapatýldý.

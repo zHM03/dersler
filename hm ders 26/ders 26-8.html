@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .draggable {
+      width: 100px;
+      height: 100px;
+      background-color: rgba(0, 253, 0, 0.568);
+      margin: 10px;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+      cursor: grab;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+  </style>
+  <body>
+    <div class="draggable" draggable="true" ondragstart="dragStart(event)">
+      Öğe 1
+    </div>
+    <div class="draggable" draggable="true" ondragstart="dragStart(event)">
+      Öğe 2
+    </div>
+    <div class="draggable" draggable="true" ondragstart="dragStart(event)">
+      Öğe 3
+    </div>
+
+    <script>
+      function dragStart(event) {
+        event.dataTransfer.setData("text", event.target.innerText);
+      }
+      document.addEventListener("dragover", function (event) {
+        event.preventDefault();
+      });
+      document.addEventListener("drop", function (event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        event.target.innerText = data;
+      });
+    </script>
+  </body>
+</html>

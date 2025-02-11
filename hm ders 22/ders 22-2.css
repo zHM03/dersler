@@ -1,0 +1,15 @@
+body {
+    font-family: fantasy;
+    margin: 20px;
+}
+
+button {
+    margin: 10px 0;
+    background-color: blueviolet;
+    color: rgb(49, 8, 87);
+}
+.shape-info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}

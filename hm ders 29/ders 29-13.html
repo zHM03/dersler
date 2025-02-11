@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 29.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ürün Listesi</h1>
+        <div class="sort-options">
+            <label for="sort-by">Sırala:</label>
+            <select id="sort-by">
+                <option value="price">Fiyat Göster</option>
+                <option value="name">İsme Göre</option>
+            </select>
+            <button onclick="sortAndDisplayProducts()">Sırala</button>
+        </div>
+        <ul id="product-list"></ul>
+    </div>
+
+    <script>
+        const products = [
+            {name:"laptop", price:3000},
+            {name:"telefon", price:1500},
+            {name:"tablet", price:2000},
+            {name:"kulaklık", price:300},
+            {name:"klavye", price:100}
+        ];
+
+        function displayProducts(productList) {
+            const productContainer = document.getElementById("product-list");
+            productContainer.innerHTML = "";
+            productList.forEach(product => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${product.name} - ${product.price} TL`;
+                productContainer.appendChild(listItem);
+            });
+        }
+
+        function mysort(arr, cmp) {
+            return arr.sort(cmp);
+        }
+
+        function sortAndDisplayProducts() {
+            const sortBy = document.getElementById("sort-by").value;
+            const sortedProducts = mysort(products, (a, b) => {
+                if (sortBy === "price") return a.price - b.price;
+                if (sortBy === "name") return a.name.localeCompare(b.name);
+            });
+            displayProducts(sortedProducts);
+        }
+
+        // Başlangıçta ürünleri görüntüle
+        displayProducts(products);
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace,;
+        background-color: rgb(3, 24, 43);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: rgb(1, 71, 133);
+        border-radius: 8px;
+        box-shadow: 0 10px rgba(17, 0, 255, 0.384);
+        margin-top: 50px;
+    }
+    h1 {
+        color: rgb(1, 6, 34);
+    }
+    .codebox {
+        background-color: rgb(8, 32, 59);
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1rem;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>JSON.stringify() ve JSON.parse() Kullanımı</h1>
+        <p><strong>JavaScript Nesnesi:</strong></p>
+        <div class="codeBox" id="jsObject"></div>
+        <p><strong>JSON Formatına Dönüştürülmüş Hali:</strong></p>
+        <div class="codeBox" id="parsedObject"></div>
+    </div>
+    <script>
+        let person = {
+            firstName: "fatih",
+            lastName: "Şahinbaş",
+            age: 35,
+            contact: {
+                email: "fatih@gmail.com",
+                phone: "123-345-67890"
+            }
+        };
+        document.getElementById("jsObject").textContent = JSON.stringify(person, null, 2);
+        let jsonString = JSON.stringify(person);
+        document.getElementById("parsedObject").textContent = JSON.stringify(
+            JSON.parse(jsonString), 
+            null, 
+            2
+        );
+    </script>
+</body>
+
+</html>

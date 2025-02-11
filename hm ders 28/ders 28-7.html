@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace,;
+        background-color: rgb(3, 24, 43);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: rgb(1, 71, 133);
+        border-radius: 8px;
+        box-shadow: 0 10px rgba(17, 0, 255, 0.384);
+        margin-top: 50px;
+    }
+    h1 {
+        color: rgb(1, 6, 34);
+    }
+    #output {
+        background-color: rgb(8, 32, 59);
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: rgb(1, 38, 117);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+</style>
+<body>
+<div class="container">
+    <h1>XMLHttpRequest Olayları</h1>
+    <p>Mahouy seviyorsanız tıklayın</p>
+    <button class="btn" onclick="makeRequest()">istek gönder</button>
+    <div id="output">Durum burada görüntülencek...</div>
+</div>
+    <script>
+function makeRequest() {
+    let xhr = new XMLHttpRequest();
+    xhr.open ("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+    xhr.onload = function () {
+        document.getElementById("output").innerText = 
+        "istek başarıyla tamamlandı: " + xhr.responseText;
+    };
+    xhr.onloadend = function () {
+        console.log("istek sona erdi.");
+    };
+    xhr.onerror = function() {
+        document.getElementById("output").innerText = "Bir hata oluştu";
+    };
+    xhr.send();
+}
+    </script>
+</body>
+</html>

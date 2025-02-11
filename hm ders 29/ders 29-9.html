@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function processData() {
+        const urls = [
+          "https://www.google.com.tr",
+          "https://www.instagram.com",
+          "https://www.facebook.com"
+        ];
+        for await (const url of urls) {
+          const response = await fetch(url);
+          console.log(await response.json());
+        }
+      }
+      processData();
+    </script>
+  </body>
+</html>

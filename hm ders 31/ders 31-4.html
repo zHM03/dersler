@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 31.css">
+</head>
+<body>
+    
+    <script>
+        class Bird {
+            fly() {
+                console.log("flyig...");
+            }
+        }
+         class Penguin extends Bird {
+            fly() {
+                throw new Error("Penguins cannot fly");
+            }
+             swim() {
+                 console.log("swimming...");
+                }
+            }
+        function makeBirdFly(bird){
+            bird.fly();
+        }
+        function makeBirdPenguin(penguin) {
+            penguin.swim();
+        }
+        const bird = new Bird();
+        const penguin = new Penguin();
+        makeBirdFly(bird);
+        makeBirdPenguin(penguin);
+    </script>
+</body>
+</html>

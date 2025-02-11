@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 31.css">
+</head>
+<body>
+    <script>
+        class Database {
+            save(data){
+                console.log(`Saving ${data} to database`);
+            }
+        }
+        class UserService {
+            constructor(database) {
+                this.database = database;
+            }
+            saveUser(user) {
+                this.database.save(user);
+            }
+        }
+        const database = new Database();
+        const userService = new UserService(database);
+        userService.saveUser("John Doe");
+        database.save("ne idüğü belirsiz")
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 20px;
+}
+
+.news {
+    border: 1px solid pink;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: aqua;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

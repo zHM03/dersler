@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Attribute Kullanımı</title>
+    <style>
+        .btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #num-of-readers {
+            margin-left: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+        <button class="btn" id="readers-plus" data-num="444">That's great!</button>
+        <span id="num-of-readers"></span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#readers-plus").click(function() {
+                let currentNum = parseInt($(this).data("num"));
+                currentNum += 1;
+                $(this).data("num", currentNum);
+                $("#num-of-readers").text(`You are ${currentNum} reader now.`);
+                setTimeout(function() {
+                    // Sayfayı başka bir URL'ye yönlendirmek için:
+                    location.href = "https://www.example.com";  // Örneğin buraya istediğiniz bir URL ekleyebilirsiniz.
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

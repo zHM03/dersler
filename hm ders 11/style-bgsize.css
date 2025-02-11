@@ -1,0 +1,26 @@
+body {
+  background-image: url("https://wallpapercave.com/wp/wp1941182.jpg");
+  background-attachment: scroll;  
+  background-repeat: no-repeat;
+  background-size: 1700px;
+ background-color: rgb(red, green, blue);
+ font-size: 20px;
+ font-weight: bold;
+}
+
+div.example {
+  border:14px soılid;
+  padding:16px;
+}
+
+div.example1 {
+  background-origin: border-box;
+}
+
+div.example2 {
+  background-origin: padding-box;
+}
+
+div.example3 {
+  background-origin: content-box;
+}

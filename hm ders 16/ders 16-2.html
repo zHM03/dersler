@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="checkPassword('Step')">beni tıkla</button>
+    <script>
+      function checkPassword(x) {
+        if (x == 'Step' || x == 'Web' || x == 'JavaScript') {
+          console.log(true);
+        } else {
+          console.log(false);
+        }
+      }
+    </body>
+    </html> -->
+        <!-- <!DOCTYPE html>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Değişken Scope</h2>
+        <p id="scopeDemo"></p>
+        <script>
+            var globalVar = 'Global Variable'
+            function testscope () {
+                <title>Document</title>
+                var localVar = 'Local Variable'
+            document.getElementById('scopeDemo').innerHTML = 
+            globalVar + 've' + local var
+        }
+        testscope()
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Hoisting Örenği</h2>
+    <p id="hoistDemo"></p>
+    <script>
+      hoistedfunction();
+      function hoistedfunction() {
+        document.getElementById("hoistDemo").innerHtml =
+          "Bu fonksiyon hosting ile çalışır";
+      }
+      console.log(x);
+      var x = 5;
+    </script>
+  </body>
+</html> -->
+
+hoca pdfi komple chatgptye atıp özetliyor galiba 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> var, let ve const farkları</h2>
+    <p id="varLetConstDemo"></p>
+    <script>
+        var x = 10
+        if (true) {
+            var x = 20
+        }
+        document.getElementById('varLetConstDemo').innerHTML = 'var ile x:' + x
+        let y = 10
+        if (true){
+            let y = 20
+        }
+        console.log('let ile y:' + y)
+
+        const z = 10
+        if (true) {
+            const z = 11
+        }
+        console.log('const ile z: ' + z)
+    </script>
+</body>
+</html>

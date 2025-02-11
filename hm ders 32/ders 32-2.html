@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <p id="description">Bu metni değiştirmek için tıklayın.</p>
+    <script>
+      $(document).ready(function () {
+        $('#description').click(function () {
+          $(this).text("jQuery kullanarak metni değiştirdiniz!");
+        });
+      });
+    </script>
+  </body>
+</html>

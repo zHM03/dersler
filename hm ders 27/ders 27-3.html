@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #drawingCanvas {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Canvas Çizim Uygulaması</h2>
+    <canvas id="drawingCanvas" width="500" height="500"></canvas>
+    <script>
+      const canvas = document.getElementById("drawingCanvas");
+      const ctx = canvas.getContext("2d");
+      canvas.addEventListener("mousedown", startDrawing);
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mouseup", stopDrawing);
+      let isDrawing = false;
+      function startDrawing() {
+        isDrawing = true;
+        ctx.beginPath();
+      }
+      function draw(event) {
+        if (!isDrawing) return;
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "black";
+        ctx.lineTo(event.offsetX, event.offsetY);
+        ctx.stroke();
+      }
+      function stopDrawing() {
+        isDrawing = false;
+        ctx.closePath();
+      }
+    </script>
+  </body>
+</html>

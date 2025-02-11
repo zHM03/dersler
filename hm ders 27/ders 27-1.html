@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: grey;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    form {
+        background-color: burlywood;
+        padding: 20px;
+        width: 300px;
+        margin: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .error {
+        color: red;
+    }
+    button {
+        margin-top: 10px;
+        width: 177px;
+    }
+    h2 {
+        text-align: center;
+        color: burlywood;
+    }
+</style>
+<body>
+    <h2>Kayıt formu</h2>
+    <form id="regestirForm">
+        <label for="email">E-Posta:</label><br>
+        <input type="email" id="email" required><br><br>
+        <label for="password">Parola:</label><br>
+        <input type="password" id="password" required><br><br>
+        <label for="confirmPassword">Parola Onayla:</label><br>
+        <input type="password" id="confirmPassword" required><br>
+        <button type="button" onclick="validateForm()">Kaydet</button>
+        <p id="error" class="error"></p>
+    </form>
+    <script>
+        function validateForm() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const errorElement = document.getElementById("error");
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}$/;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+            errorElement.textContent = "";
+
+            if (!emailRegex.test(email)) {
+                errorElement.textContent = "Geçerli bir e-posta adresi girin";
+                return;
+            }
+
+            if (!passwordRegex.test(password)) {
+                errorElement.textContent = "Parola en az 6 karakter, bir büyük harf, bir küçük harf ve bir rakam içermeli";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                errorElement.textContent = "Parolar Eşleşmiyor, düzelt hemen!";
+                return;
+            }
+
+            errorElement.textContent = "Kayıt Başarılı";
+        }
+    </script>
+</body>
+</html>

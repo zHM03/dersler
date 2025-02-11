@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: brown;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(245, 222, 179, 0.507);
+}
+.header {
+    background-color: wheat;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+.board {
+    display: flex;
+    justify-content: space-between;
+}
+.column {
+    width: 30%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+}
+.task {
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: move;
+    position: relative;
+}
+.task.dragging {
+    opacity: 0.5;
+}
+.task .remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: red;
+}
+.add-task {
+    margin-top: 10px;
+}
+.add-task input {
+    width: 70%;
+    padding: 5px;
+}
+.add-task button {
+    padding: 5px 10px;
+    background-color: wheat;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

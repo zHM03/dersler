@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Düzeltilmiş: .body yerine body */
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li { /* Düzeltilmiş: .menu.li yerine .menu li */
+            padding: 10px 20px;
+            background-color: blueviolet;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background: #f1f1f1;
+                border-radius: 5px;
+                margin-top: 10px;
+                padding: 10px 0;
+            }
+
+            .menu li {
+                margin: 5px 0;
+                text-align: center;
+                background-color: blue;
+                color: white; /* Menü elemanlarının renkleri */
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .menu.open {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <button class="hamburger">&equiv;</button>
+        <ul class="menu">
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".hamburger").click(function() {
+                $(".menu").toggleClass("open");
+                if ($(".menu").hasClass("open")) {
+                    $(this).html("&times;");  // Çarpı işareti
+                } else {
+                    $(this).html("&equiv;");  // Menü işareti
+                }
+            });
+        });
+    </script>
+</body>
+</html>

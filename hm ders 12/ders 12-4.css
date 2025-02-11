@@ -1,0 +1,74 @@
+table {
+    width: 80%;
+    min-width: 650px;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+caption {
+    text-align: center;
+    text-transform: uppercase;
+    color: aqua;
+    font-weight: 700;
+}
+
+tr th:first-child{
+color: black;
+}
+
+th {
+    text-transform: uppercase;
+    color: rgb(0, 136, 255);
+}
+
+td, th {
+    text-align: center;
+    padding: 1em 0;
+}
+
+tr td:first-child {
+    text-align: left;
+    color: blue;
+}
+
+span {
+    color: yellowgreen;
+    font-weight: 700;
+    font-size: 1.2em;
+    display: inline-block;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.col-1{
+    background-color: yellow;
+    width: 50%;
+}
+
+.col-2 {
+    background-color: violet;
+    width: 50%;
+}
+.col-3 {
+    background-color: turquoise;
+    width: 50%;
+}
+.col-4{
+    background-color: tomato;
+    width: 50%;
+}
+.col-5{
+    background-color: cadetblue;
+    width: 50%;
+}
+
+thead{
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+tfoot{
+    border-top: 1px solid rgb(255, 255, 255);
+}

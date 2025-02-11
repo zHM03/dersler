@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      #content {
+        display: none;
+        background-color: #f0f0f0;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      .btn {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">İçeriği Göster</button>
+    <div id="content">
+      <p>
+        Merhaba, jQuery kullanarak kolayca görünürlük kontrolü yapabilirsiniz!
+      </p>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".btn").click(function () {
+          $("#content").toggle();  // Doğru seçici: #content
+        });
+      });
+    </script>
+  </body>
+</html>

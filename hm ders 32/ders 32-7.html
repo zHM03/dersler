@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <label>Adınız: <input type="text" name="name" /></label><br />
+      <label>E-posta: <input type="email" name="email" /></label><br />
+      <label
+        ><input type="checkbox" name="agreement" id="agreement" /> Şartları
+        kabul ediyorum</label
+      ><br />
+      <button type="submit" id="submit" disabled>Gönder</button>
+    </form>
+    <script>
+      $(document).ready(function () {
+        $("#agreement").change(function () {
+          // Değiştirilen satır: is("checked") yerine :checked kullanılıyor.
+          if ($(this).is(":checked")) {
+            $("#submit").prop("disabled", false);
+          } else {
+            $("#submit").prop("disabled", true);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

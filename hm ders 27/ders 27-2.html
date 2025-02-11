@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: grey;
+    }
+  </style>
+  <body>
+    <h2>Kullanıcı Bilgileri</h2>
+    <label for="username">Kullanıcı Adınız</label><br />
+    <input type="text" id="username" /><br /><br />
+    <button onclick="saveCookie()">Kaydet</button>
+    <button onclick="loadCookie()">Çerezi Yükle</button>
+    <button onclick="deleteCookie()">Çerezi Sil</button>
+    <p id="message"></p>
+    <script>
+      function saveCookie() {
+        const username = document.getElementById("username").value;
+        document.cookie = `username=${username}; max-age=3600; path=/`;
+        document.getElementById("message").textContent = "Çerez Kaydedildi";
+      }
+
+      function loadCookie() {
+        const cookies = document.cookie.split("; ");
+        const usernameCookie = cookies.find((cookie) =>
+          cookie.startsWith("username=")
+        );
+        if (usernameCookie) {
+          const username = usernameCookie.split("=")[1];
+          document.getElementById(
+            "message"
+          ).textContent = `Çerezden Yüklenen Kullanıcı Adı: ${username}`;
+        } else {
+          document.getElementById("message").textContent = "Çerez Bulunamadı.";
+        }
+      }
+
+      function deleteCookie() {
+        document.cookie = "username=; max-age=0; path=/";
+        document.getElementById("message").textContent = "Çerez Silindi";
+      }
+    </script>
+  </body>
+</html>

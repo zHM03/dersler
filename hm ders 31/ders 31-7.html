@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="ders 31.css" />
+  </head>
+  <body>
+    <div id="todo-list">
+      <ul></ul>
+    </div>
+    <input type="text" id="todo-input" placeholder="Enter task" />
+    <button id="add-todo-btn">Add Task</button>
+    <script>
+      class TodoModel {
+        constructor() {
+          this.todos = [];
+        }
+        addTodo(todo) {
+          this.todos.push({ text: todo, completed: false });
+        }
+        getTodos() {
+          return this.todos;
+        }
+        completedTodo(index) {
+          this.todos[index].completed = true;
+        }
+      }
+      class TodoView {
+        constructor() {
+          this.todoList = document.querySelector("#todo-list- ul");
+          this.todoInput = document.querySelector("#todo-input");
+          this.addTodoBtn = document.querySelector("#add-todo-btn");
+        }
+        render(todos) {
+          this.todoList.innerHTML = "";
+          todos.forEach((todo, index) => {
+            const li = document.createElement("li");
+            li.textContent = todo.text;
+            if (todo.completed) {
+              li.classList.add("completed");
+            }
+            li.addEventListener("click", () => this.onTodoClick(index));
+            this.todoList.appendChild(li);
+          });
+        }
+        onTodoClick(index) {
+          this.controller.completeTodo(index);
+        }
+      }
+      class TodoController {
+        constructor(model, view) {
+          this.model = model;
+          this.view = view;
+          this.view.addTodoBtn.addEventListener(
+            "click",
+            this.addTodo.bind(this)
+          );
+          this.view.controller = this;
+        }
+        addTodo() {
+         const TodoText = this.view.todoInput.value;
+         if (TodoText)    {
+            this.model.addTodo(todoText);
+            this.updateView();
+            this.view.todoInput.value = "";
+         }
+        }
+        completeTodo(index) {
+            this.model.completeTodo(index);
+            this.updateView();
+        }
+        updateView() {
+            const todos = this.model.getTodos();
+            this.view.render(todos);
+        }
+      }
+      const model = new TodoModel();
+      const view = new TodoView();
+      const controller = new TodoController(model, view);
+    </script>
+  </body>
+</html>

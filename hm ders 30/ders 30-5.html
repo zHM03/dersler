@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Pattern</title>
+    <link rel="stylesheet" href="ders 30.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Module Pattern</h1>
+        <button id="call-public-method">Call Public Method</button>
+        <div id="output"></div>
+    </div>
+    <script>
+        const Module = (function() {
+            // Private variable and method
+            let privateVar = "Özelsin";
+            function privateMethod() {
+                console.log(privateVar);
+            }
+            
+            // Return the public API
+            return {
+                publicMethod: function() {
+                    privateMethod();  // Call the private method (internal use)
+                    
+                    // Update the output with public variables
+                    const output = document.getElementById("output");
+                    output.innerHTML = `
+                    <p> Private variable is not directly accessible.</p>
+                    <p> Public variable: ${this.publicVar}</p>`;  // Use this.publicVar correctly
+                },
+                publicVar: "I am public"  // Public variable
+            };
+        })();
+
+        // Event listener to call the public method
+        document.getElementById("call-public-method").addEventListener("click", () => {
+            Module.publicMethod();
+            // privateMethod is not accessible directly from outside the Module
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="toggle">Gizle/Göster</button>
+    <div id="content" style="width: 100px; height: 100px; background-color: blue; margin-top: 20px;"></div>
+    <script>
+      $(document).ready(function () {
+        $("#toggle").click(function () {
+            $("#content").slideToggle(500);
+          });
+      });
+    </script>
+  </body>
+</html>

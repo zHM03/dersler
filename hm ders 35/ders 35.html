@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: rgb(63, 1, 1);
+}
+h1 {
+    text-align: center;
+    color: brown;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: burlywood;
+}
+#addRisk {
+    background-color: brown;
+    color: wheat;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+#addRisk:hover{
+    background-color: rgb(99, 13, 13);
+}
+input{
+    background-color: rgb(206, 58, 58);
+    color: burlywood;
+}
+</style>
+<body>
+    <h1>Risk yönetim tablosu</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Risk Adı</th>
+                <th>Olasılık (1-3)</th>
+                <th>Etki (1-3)</th>
+                <th>Önem Derecesi</th>
+                <th>Eylem</th>
+            </tr>
+        </thead>
+        <tbody id="riskTable">
+<!--Dinamik olarak riskler burada görünecek-->
+        </tbody>
+    </table>
+    <button id="addRisk">Yeni Risk Ekle</button>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+$(document).ready(function(){
+    function calculateRiskImportance(row){
+        const probability = parseInt(row.find(".rpobability").val()) || 0;
+        const impact = parseInt(row.find(".impact").val()) || 0;
+        const importance = probability * impact;
+        row.find(".importance").text(importance);
+    }
+    $("#addRisk").click(function() {
+        const newRow = `
+        <tr>
+        <td><input type="text" class="riskName" placeholder="Risk adı"></td>
+        <td><input type="number" class="probability" min="1" max="3" value="1"></td>
+        <td><input type="number" class="impact" min="1" max="3" value="1"></td>
+        <td class="deleteRow">Sil</button></td>
+        </tr>`
+        $("#riskTable").append(newRow);
+    });
+    $(document).on("input", ".probability, .impact", function() {
+        const row = $(this).closest("tr");
+        calculateRiskImportance(row);
+    });
+    $(document).on("click", ".deleteRow", function() {
+        $(this).closest("tr").remove();
+    });
+});
+    </script>
+</body>
+</html>

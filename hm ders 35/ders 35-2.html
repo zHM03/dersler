@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #228B22;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th,
+    td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+    #taskChart {
+        margin-top: 30px;
+    }
+    .bar{
+        height: 30px;
+        background-color: #228B22;
+        margin-bottom: 10px;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+    }
+
+</style>
+<body>
+<h1>Proje Planlama Görselleştirme</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Görev Adı</th>
+            <th>Başlangıç (Gün)</th>
+            <th>Süre (Gün)</th>
+            <th>Eylem</th>
+        </tr>
+    </thead>
+    <tbody id="taskTable">
+        <!--dinamik olarak görevler buraya eklenir-->
+    </tbody>
+</table>
+<button id="addTask">Yeni Görev Ekle</button>
+<div id="taskChart"></div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+$(document).ready(function() {
+    $("#addTask").click(function () {
+        const newRow =`
+        <tr>
+            <td><input type="text" class="taskName" placeholder="Görev adı"></td>
+            <td><input type="number" class="startDay" min="0" value="0"></td>
+            <td><input type="number" class="duration" min="1" value="1"></td>
+            <td><button class="deleteRow">Sil</button></td>
+            </tr>`;
+            $("#taskTable").append(newRow);
+    });
+    $(document).on("click", ".deleteRow", function () {
+        $(this).closest("tr").remove();
+        updateChart();
+    });
+    $(document).on("input", ".taskname, .startDay, .duration", function () {
+        updateChart();
+    });
+    function updateChart() {
+        $("#taskChart").empty();
+        $("#taskTable tr").each(function () {
+            const name = $(this).find(".taskName").val() || "Görev";
+            const start = parseInt($(this).find(".startDay").val()) || 0;
+            const duration = parseInt($(this).find(".duration").val()) || 1;
+            const bar = $(`<div class="bar">${name}</div>`);
+            bar.css({
+                "margin-left": `${start * 10}px`,
+                width: `${duration * 10}px`
+            });
+            $("#taskChart").append(bar);
+        })
+    }
+})
+    </script>
+</body>
+</html>
