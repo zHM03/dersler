@@ -1,0 +1,15 @@
+1.
+git config --global user.name "Hisham"
+git config --global user.email "hisham@hisham.com"
+
+2.
+git config --list
+
+3. 
+cd dosya konumu
+
+4.
+eğer hepsini git add .
+bir tane ise git add dosya.txt
+
+5.
