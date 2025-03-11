@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banka hesap Yönetimi</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+    <h1>Banka Hesap Yönetimi</h1>
+    <p>Mevcut Bakiye: <span id="bakiye">{{ bakiye }}</span> TL </p>
+    
+    <form hx-post="/yatir" hx-target="#bakiye" hx-swap="innerHTML">
+        <label for="yatir-miktar">Yatıralacak Miktar:</label>
+        <input type="number" name="miktar" id="yatir-miktar" step="0.01" required>
+        <button type="submit">Para Yatır</button>
+    </form>
+    <form hx-post="/cek" hx-target="#bakiye" hx-swap="innerHTML">
+        <label for="cek-miktar">Çekilecek Miktar:</label>
+        <input type="number" name="miktar" id="cek-miktar" step="0.01" required>
+        <button type="submit">Para Çek</button>
+    </form>
+    <script>
+htmx.on("htmx:afterRequest", function (evt) {
+if (evt.detail.successful) {
+const response = JSON.parse(evt.detail.xhr.responseText);
+document.getElementById("bakiye").textContent = response.bakiye;
+alert(response.mesaj || response.hata);
+}
+});
+    </script>
+
+    
+</body>
+</html>
