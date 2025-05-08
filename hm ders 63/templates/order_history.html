@@ -1,0 +1,15 @@
+{%extends 'layout.html' %}
+{% block content %}
+<div class="container">
+    <h2> Sipariş geçmişi</h2>
+    <ul class="list_group">
+        {%for order in orders%}
+        <li class="list-group-item">
+            {{ order.OrderDate.strftime('%Y-%m-%d') }} - {{ order.ProductName }} - {{ order.Quantity }} adet - {{ order.TotalPrice }} TL
+        </li>
+        {%else&}
+        <li class="list-group-item">Henüz siparişiniz yok.</li>
+        {%endfor%}
+    </ul>
+</div>"
+{%endblock%}
