@@ -1,0 +1,10 @@
+<h2>Görevler</h2>
+<ul>
+    {% for task in tasks %}
+    <li>
+        <a href="{% url 'toggle_task' task.id %}">
+            {{ task.title }} - {% if task.completed %} Tamamlnadı {% else %} Bekliyor {% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
